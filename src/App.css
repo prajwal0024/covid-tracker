@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+/* BASIC SETTINGS */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    font-size: 62.5%;
+    background-color: #F3F8FF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif; 
+    overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+:root {
+  --color-primary: #1E3E65;
+  --color-background: #F3F8FF;
+  --color-white: #ffffff;
+  --color-accent: #2784F7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainContent {
+    height: 100vh;
+    overflow-y: scroll;
+    flex: 0 0 70%;
+    padding: 1rem;
+    margin-top: 6.8rem;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.mainContent::-webkit-scrollbar { width: 0 !important }
+
+.bigRow,
+.simpleRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.simpleRow > * {
+    margin: 2rem 1rem 1rem;
+}
+
+.bigRow > :first-child {
+    margin: 2rem 1rem 1rem  0;
+}
+.bigRow > :last-child {
+    margin: 2rem 0 1rem 1rem;
+}
+
+.dropDown {
+    cursor: pointer;
+    background-color: var(--color-white);
+    padding: 1rem 2.7rem .9rem;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 5rem auto 2rem;
+    box-shadow: 0 .3rem 1rem rgba(30, 62, 101, .2);
+}
+
+.sidebar__block{
+    cursor: default;
+    padding: 1rem 5rem .9rem;
+    margin: 3.9rem auto 1rem;
+}
+
+.dropDown__heading {
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: var(--color-primary);
+}
+
+.dropDown__heading > span {
+    font-weight: 500;
+}
+
+.footNote {
+    margin: 4rem 1rem 2rem;
+}
+
+.footNote__text {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: .7px;
+}
+
+.footNote__text > a,
+.footNote__text > a:link,
+.footNote__text > a:hover,
+.footNote__text > a:visited {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.footNote__text > span {
+    width: .7rem;
+    display: inline-block
+}
+
+.sidebar {
+    padding-top: 6rem;
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.sidebar__heading {
+    cursor: default;
+    font-size: 3.1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin: 3.5rem 0 0 1rem;
+    flex: 0 0 content;
+}
+
+.countryList {
+    flex: 0 0 1;
+    overflow: scroll;
 }

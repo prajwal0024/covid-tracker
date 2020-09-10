@@ -1,0 +1,93 @@
+.header {
+  z-index: 1;
+  width: 100%;
+  background-color: #ffffff;
+  height: 6.8rem;
+  position: fixed;
+  top: 0;
+}
+
+.header__innerDiv {
+  height: 6.8rem;
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  height: 4.4rem;
+  width: auto;
+}
+
+.header__search {
+  width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__input {
+  width: 90%;
+  margin-right: -4rem;
+  background-color: rgba(215, 231, 253, .3);
+  border: none;
+  border-radius: 20px;
+  padding: 1rem;
+  padding-left: 2rem;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  transition: all .25s;
+}
+
+.header__input:hover {
+  width: 100%;
+}
+
+.header__input:focus {
+  width: 100%;
+  outline: none;
+}
+
+.header__searchIcon {
+  height: 1.984rem;
+  width: 1.984rem;
+}
+
+/* 
+
+.header__input {
+  width: 90%;
+  margin-right: -4rem;
+  background-color: rgba(215, 231, 253, .3);
+  border: none;
+  border-radius: 20px;
+  padding: 1rem;
+  padding-left: 2rem;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  transition: all .2s;
+}
+
+.header__input:hover {
+  width: 100%;
+}
+
+.header__input:focus {
+  outline: none;
+}
+
+::placeholder {
+  font-family: inherit;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-left: 1.8rem;
+  opacity: .8;
+}
+
+.header__searchIcon {
+  height: 1.984rem;
+  width: 1.984rem;
+  color: black;
+} */

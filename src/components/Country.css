@@ -1,0 +1,31 @@
+.country {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  box-shadow: 0 .5rem 1rem rgba(30, 62, 101, .2);
+  max-width: 30rem;
+  margin: 2.5rem auto;
+  cursor: default;
+}
+
+.country__heading {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: .8rem;
+}
+
+.country__lines {
+  background-color: var(--color-primary);
+  opacity: .3;
+  border: none;
+  height: .2rem;
+}
+
+.country__number {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 3rem;
+  margin-top: 1rem;
+}
