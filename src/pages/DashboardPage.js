@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Stats from '../components/Stats'
 import './DashboardPage.css'
 import { DataContext } from '../context/DataContext'
@@ -6,6 +6,7 @@ import { calculatePercentage } from '../utils';
 
 function DashboardPage() {
 
+  //Global States
   const {
     countriesState, worldwideState, countryIndexState, countryDataState
   } = useContext(DataContext);
@@ -13,6 +14,15 @@ function DashboardPage() {
   const [apiWorldwideData,] = worldwideState;
   const [selectedCountryIndex,] = countryIndexState;
   const [selectedCountryData, setSelectedCountryData] = countryDataState;
+
+  //State
+  const [dropDownIndex, setDropDownIndex] = useState(1);
+  // const numberType = ['ten million', 'one million', 'hundred thousand'];
+  const numberType = {
+    10: 'ten million',
+    1: 'one million',
+    0.1: 'hundred thousand'
+  };
 
   useEffect(() => {
     console.log("Dashboard====>>>", selectedCountryIndex)
@@ -83,6 +93,19 @@ function DashboardPage() {
     }
   }, [apiWorldwideData, selectedCountryIndex])
 
+  const dropDownClicked = () => {
+    console.log("CLICKED......!!")
+    if (dropDownIndex === 1) {
+      setDropDownIndex(0.1);
+    }
+    else if (dropDownIndex === 0.1) {
+      setDropDownIndex(10);
+    }
+    else {
+      setDropDownIndex(1);
+    }
+  }
+
   return (
     <div className="dashBoard">
       {/* --First Row */}
@@ -151,9 +174,11 @@ function DashboardPage() {
       </div>
 
       {/* --Forth Row */}
-      <div className="dropDown">
+      <div className="dropDown" onClick={dropDownClicked}>
         {/* ------Drop Down */}
-        <h2 className="dropDown__heading">Stats per <span>One Million👇</span></h2>
+        <h2 className="dropDown__heading">
+          Stats per <span>{numberType[dropDownIndex]}👇</span>
+        </h2>
       </div>
 
       {/* --Fifth Row */}
@@ -161,20 +186,20 @@ function DashboardPage() {
         {/* ------Cases */}
         <Stats
           heading="Cases"
-          number={selectedCountryData.casesPerOneMillion || "--"}
-          bottomLine="*per one million"
+          number={Math.floor(selectedCountryData.casesPerOneMillion * dropDownIndex) || 0}
+          bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
         {/* ------Deaths */}
         <Stats
           heading="Recovered"
-          number={selectedCountryData.recoveredPerOneMillion || "--"}
-          bottomLine="*per one million"
+          number={Math.floor(selectedCountryData.recoveredPerOneMillion * dropDownIndex) || 0}
+          bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
         {/* ------Recovered */}
         <Stats
           heading="Deaths"
-          number={selectedCountryData.deathsPerOneMillion || "--"}
-          bottomLine="*per one million"
+          number={Math.floor(selectedCountryData.deathsPerOneMillion * dropDownIndex) || 0}
+          bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
       </div>
 
@@ -183,13 +208,13 @@ function DashboardPage() {
         {/* ------Active */}
         <Stats
           heading="Active"
-          number={selectedCountryData.activePerOneMillion || "--"}
+          number={Math.floor(selectedCountryData.activePerOneMillion * dropDownIndex) || 0}
           progressBar={selectedCountryData.activePerOneMillionPercentage}
         />
         {/* ------Critical */}
         <Stats
           heading="Critical"
-          number={selectedCountryData.criticalPerOneMillion || "--"}
+          number={Math.floor(selectedCountryData.criticalPerOneMillion * dropDownIndex) || 0}
           progressBar={selectedCountryData.criticalPerOneMillionPercentage}
         />
       </div>
