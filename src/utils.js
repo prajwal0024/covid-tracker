@@ -12,3 +12,7 @@
 // }
 
 export const sortCountries = data => data.sort((a, b) => a.cases < b.cases);
+
+export const calculatePercentage = (number, totalNumber) => {
+  return Math.ceil((number / totalNumber) * 100);
+}

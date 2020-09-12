@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import Stats from '../components/Stats'
 import './DashboardPage.css'
 import { DataContext } from '../context/DataContext'
+import { calculatePercentage } from '../utils';
 
 function DashboardPage() {
 
@@ -24,15 +25,27 @@ function DashboardPage() {
         deaths: apiWorldwideData.deaths,
         todayDeaths: apiWorldwideData.todayDeaths,
         active: apiWorldwideData.active,
+        activePercentage: calculatePercentage
+          (apiWorldwideData.active, apiWorldwideData.cases),
         critical: apiWorldwideData.critical,
+        criticalPercentage: calculatePercentage
+          (apiWorldwideData.critical, apiWorldwideData.active),
         population: apiWorldwideData.population,
         tests: apiWorldwideData.tests,
+        testsPercentage: calculatePercentage
+          (apiWorldwideData.tests, apiWorldwideData.population),
 
         casesPerOneMillion: apiWorldwideData.casesPerOneMillion,
         recoveredPerOneMillion: apiWorldwideData.recoveredPerOneMillion,
         deathsPerOneMillion: apiWorldwideData.deathsPerOneMillion,
         activePerOneMillion: apiWorldwideData.activePerOneMillion,
+        activePerOneMillionPercentage: calculatePercentage
+          (apiWorldwideData.activePerOneMillion,
+            apiWorldwideData.casesPerOneMillion),
         criticalPerOneMillion: apiWorldwideData.criticalPerOneMillion,
+        criticalPerOneMillionPercentage: calculatePercentage
+          (apiWorldwideData.criticalPerOneMillion,
+            apiWorldwideData.activePerOneMillion),
       });
     }
     else {
@@ -45,15 +58,27 @@ function DashboardPage() {
         deaths: tempObject.deaths,
         todayDeaths: tempObject.todayDeaths,
         active: tempObject.active,
+        activePercentage: calculatePercentage
+          (tempObject.active, tempObject.cases),
         critical: tempObject.critical,
+        criticalPercentage: calculatePercentage
+          (tempObject.critical, tempObject.active),
         population: tempObject.population,
         tests: tempObject.tests,
+        testsPercentage: calculatePercentage
+          (tempObject.tests, tempObject.population),
 
         casesPerOneMillion: tempObject.casesPerOneMillion,
         recoveredPerOneMillion: tempObject.recoveredPerOneMillion,
         deathsPerOneMillion: tempObject.deathsPerOneMillion,
         activePerOneMillion: tempObject.activePerOneMillion,
+        activePerOneMillionPercentage: calculatePercentage
+          (tempObject.activePerOneMillion,
+            tempObject.casesPerOneMillion),
         criticalPerOneMillion: tempObject.criticalPerOneMillion,
+        criticalPerOneMillionPercentage: calculatePercentage
+          (tempObject.criticalPerOneMillion,
+            tempObject.activePerOneMillion),
       });
     }
   }, [apiWorldwideData, selectedCountryIndex])
@@ -72,7 +97,7 @@ function DashboardPage() {
               : "-- cases today"
           }
         />
-        {/* ------Recovertarted */}
+        {/* ------Recovered */}
         <Stats
           heading="Recovered"
           number={selectedCountryData.recovered || "--"}
@@ -99,13 +124,13 @@ function DashboardPage() {
         <Stats
           heading="Active"
           number={selectedCountryData.active || "--"}
-          progressBar={40}
+          progressBar={selectedCountryData.activePercentage}
         />
         {/* ------Critical */}
         <Stats
           heading="Critical"
           number={selectedCountryData.critical || "--"}
-          progressBar={20}
+          progressBar={selectedCountryData.criticalPercentage}
         />
       </div>
 
@@ -121,7 +146,7 @@ function DashboardPage() {
         <Stats
           heading="Tests"
           number={selectedCountryData.tests || "--"}
-          progressBar={20}
+          progressBar={selectedCountryData.testsPercentage}
         />
       </div>
 
@@ -159,13 +184,13 @@ function DashboardPage() {
         <Stats
           heading="Active"
           number={selectedCountryData.activePerOneMillion || "--"}
-          progressBar={40}
+          progressBar={selectedCountryData.activePerOneMillionPercentage}
         />
         {/* ------Critical */}
         <Stats
           heading="Critical"
           number={selectedCountryData.criticalPerOneMillion || "--"}
-          progressBar={40}
+          progressBar={selectedCountryData.criticalPerOneMillionPercentage}
         />
       </div>
 
