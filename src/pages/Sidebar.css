@@ -19,4 +19,5 @@
 .countryList {
     flex: 0 0 1;
     overflow: scroll;
+    max-height: 1050px;
 }

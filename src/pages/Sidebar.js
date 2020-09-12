@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './Sidebar.css'
 import Country from '../components/Country'
 import { DataContext } from '../context/DataContext'
+import { sortCountries } from '../utils';
 
 function Sidebar() {
 
@@ -46,7 +47,7 @@ function Sidebar() {
           cases={apiWorldwideData.cases ? apiWorldwideData.cases : "--"} />
         {
           apiCountriesData.length > 0 ?
-            apiCountriesData.map((cur, index) => (
+            sortCountries(apiCountriesData).map((cur, index) => (
               <Country
                 key={index}
                 listId={index}

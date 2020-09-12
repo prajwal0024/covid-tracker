@@ -1,16 +1,14 @@
-export const extractCountriesList = (allData, countriesData) => {
-  const countryArray = countriesData.map(current => (
-    {
-      name: current.country,
-      number: current.cases,
-      value: current.countryInfo.iso2
-    }
-  ))
+// export const sortCountries = (data) => {
+//   let sortedData = data;
+//   sortedData.sort((a, b) => {
+//     if (a.cases > b.cases) {
+//       return -1;
+//     }
+//     else {
+//       return 1;
+//     }
+//   })
+//   return sortedData;
+// }
 
-  const allObj = {
-    name: "hello",
-    number: 999999999,
-    value: "worldwide"
-  }
-  return [allObj, allObj];
-}
+export const sortCountries = data => data.sort((a, b) => a.cases < b.cases);

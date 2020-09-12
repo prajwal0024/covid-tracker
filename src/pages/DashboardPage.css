@@ -1,11 +1,9 @@
 .dashBoard {
-    height: 100vh;
+    max-height: 100vh;
     overflow-y: scroll;
     flex: 0 0 70%;
     padding: 1rem;
     margin-top: 6.8rem;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
 }
 
 .bigRow,
