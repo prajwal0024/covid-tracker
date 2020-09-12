@@ -1,0 +1,26 @@
+.dashBoard {
+    height: 100vh;
+    overflow-y: scroll;
+    flex: 0 0 70%;
+    padding: 1rem;
+    margin-top: 6.8rem;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.bigRow,
+.simpleRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.simpleRow > * {
+    margin: 2rem 1rem 1rem;
+}
+
+.bigRow > :first-child {
+    margin: 2rem 1rem 1rem  0;
+}
+.bigRow > :last-child {
+    margin: 2rem 0 1rem 1rem;
+}

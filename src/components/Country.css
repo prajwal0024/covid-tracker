@@ -16,7 +16,7 @@
   margin-bottom: .8rem;
 }
 
-.country__lines {
+.country__line {
   background-color: var(--color-primary);
   opacity: .3;
   border: none;
@@ -28,4 +28,14 @@
   font-weight: 400;
   font-size: 3rem;
   margin-top: 1rem;
+}
+
+.country__active {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 .5rem 1rem rgba(39, 132, 247, .2);
+}
+
+.country__active > .country__line {
+    background-color: var(--color-accent);
 }

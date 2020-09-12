@@ -1,0 +1,22 @@
+.sidebar {
+    padding-top: 6rem;
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.sidebar__heading {
+    cursor: default;
+    font-size: 3.1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin: 3.5rem 0 0 1rem;
+    flex: 0 0 content;
+}
+
+.countryList {
+    flex: 0 0 1;
+    overflow: scroll;
+}
