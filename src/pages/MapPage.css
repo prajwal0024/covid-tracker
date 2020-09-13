@@ -1,14 +1,33 @@
 .map {
-  max-height: 100vh;
-  overflow-y: scroll;
-  padding: 1rem;
-  margin-top: 6.8rem;
-  /* background-color: red; */
-  text-align: center;
+    max-height: 100vh;
+    overflow-y: scroll;
+    flex: 0 0 70%;
+    padding: 1rem;
+    margin-top: 6.8rem;
 }
 
-.map h1 {
-  margin: 2rem auto;
-  width: 100vw;
-  font-weight: 400;
+.map > .stats {
+  min-width: 40rem;
+}
+
+.map__singleRow {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.map__singleRow > * {
+  margin: 2rem 1rem 1rem;
+  min-width: 25rem;
+}
+
+.map .stats__progressBar,
+.map .stats__bottomLine {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .map {
+    flex: 1;
+  }
 }

@@ -2,6 +2,7 @@
   max-height: 100vh;
   overflow-y: scroll;
   padding: 1rem;
+  flex: 0 0 70%;
   margin-top: 6.8rem;
   /* background-color: red; */
   text-align: center;
@@ -9,6 +10,12 @@
 
 .analytics h1 {
   margin: 2rem auto;
-  width: 100vw;
+
   font-weight: 400;
+}
+
+@media (max-width: 1000px) {
+  .analytics {
+    flex: 1;
+  }
 }

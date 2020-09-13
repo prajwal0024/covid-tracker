@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link, Redirect
 } from "react-router-dom";
 import MapPage from './pages/MapPage';
 import AnalyticsPage from './pages/AnalyticsPage';
@@ -41,7 +41,10 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route path="/" exact><DashboardPage /></Route>
+            <Route exact path="/">
+              <Redirect to="/dashboard" />
+            </Route>
+            <Route path="/dashboard" exact><DashboardPage /></Route>
             <Route path="/map" exact><MapPage /></Route>
             <Route path="/analytics" exact><AnalyticsPage /></Route>
             <Route path="/sidebar" exact><Sidebar onlySidebar /></Route>
