@@ -5,6 +5,15 @@ import Tabs from './components/Tabs';
 import DashboardPage from './pages/DashboardPage';
 import Sidebar from './pages/Sidebar';
 import { DataContext } from './context/DataContext'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import MapPage from './pages/MapPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+
 
 function App() {
 
@@ -27,14 +36,22 @@ function App() {
   }, [])
 
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <DashboardPage />
-        <Sidebar />
-      </main>
-      <Tabs view="dashboard" />
-    </div >
+    <Router>
+      <div className="app">
+        <Header />
+        <main>
+          <Switch>
+            <Route path="/" exact><DashboardPage /></Route>
+            <Route path="/map" exact><MapPage /></Route>
+            <Route path="/analytics" exact><AnalyticsPage /></Route>
+            <Route path="/sidebar" exact><Sidebar /></Route>
+          </Switch>
+
+          <Sidebar className="app__fixedSidebar" />
+        </main>
+        <Tabs view="dashboard" />
+      </div >
+    </Router>
   );
 }
 

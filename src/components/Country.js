@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import './Country.css'
+import numeral from 'numeral'
 import { DataContext } from '../context/DataContext'
 
 const Country = ({ name, cases, listId }) => {
@@ -20,7 +21,7 @@ const Country = ({ name, cases, listId }) => {
 
       <h3 className="country__heading">{name}</h3>
       <hr className="country__line" />
-      <h4 className="country__number">{cases}</h4>
+      <h4 className="country__number">{numeral(cases).format("0,0")}</h4>
     </div>
   )
 }

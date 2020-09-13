@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Stats from '../components/Stats'
 import './DashboardPage.css'
 import { DataContext } from '../context/DataContext'
-import { calculatePercentage } from '../utils';
+import { calculatePercentage, prettyPrintStat } from '../utils';
 
 function DashboardPage() {
 
@@ -113,7 +113,7 @@ function DashboardPage() {
         {/* ------Cases */}
         <Stats
           heading="Cases"
-          number={selectedCountryData.cases || "--"}
+          number={prettyPrintStat(selectedCountryData.cases) || "--"}
           bottomLine={
             selectedCountryData.todayCases
               ? `+${selectedCountryData.todayCases} cases today`
@@ -123,7 +123,7 @@ function DashboardPage() {
         {/* ------Recovered */}
         <Stats
           heading="Recovered"
-          number={selectedCountryData.recovered || "--"}
+          number={prettyPrintStat(selectedCountryData.recovered) || "--"}
           bottomLine={
             selectedCountryData.todayCases
               ? `+${selectedCountryData.todayRecovered} cases today`
@@ -133,7 +133,7 @@ function DashboardPage() {
         {/* ------Deaths */}
         <Stats
           heading="Deaths"
-          number={selectedCountryData.deaths || "--"}
+          number={prettyPrintStat(selectedCountryData.deaths) || "--"}
           bottomLine={
             selectedCountryData.todayCases
               ? `+${selectedCountryData.todayDeaths} cases today`
@@ -146,13 +146,13 @@ function DashboardPage() {
       <div className="bigRow">
         <Stats
           heading="Active"
-          number={selectedCountryData.active || "--"}
+          number={prettyPrintStat(selectedCountryData.active) || "--"}
           progressBar={selectedCountryData.activePercentage}
         />
         {/* ------Critical */}
         <Stats
           heading="Critical"
-          number={selectedCountryData.critical || "--"}
+          number={prettyPrintStat(selectedCountryData.critical) || "--"}
           progressBar={selectedCountryData.criticalPercentage}
         />
       </div>
@@ -162,13 +162,13 @@ function DashboardPage() {
         {/* ------Population */}
         <Stats
           heading="Population"
-          number={selectedCountryData.population || "--"}
+          number={prettyPrintStat(selectedCountryData.population) || "--"}
           bottomLine="*approximate estimation"
         />
         {/* ------Tests */}
         <Stats
           heading="Tests"
-          number={selectedCountryData.tests || "--"}
+          number={prettyPrintStat(selectedCountryData.tests) || "--"}
           progressBar={selectedCountryData.testsPercentage}
         />
       </div>
@@ -186,19 +186,19 @@ function DashboardPage() {
         {/* ------Cases */}
         <Stats
           heading="Cases"
-          number={Math.floor(selectedCountryData.casesPerOneMillion * dropDownIndex) || 0}
+          number={prettyPrintStat(Math.floor(selectedCountryData.casesPerOneMillion * dropDownIndex)) || 0}
           bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
         {/* ------Deaths */}
         <Stats
           heading="Recovered"
-          number={Math.floor(selectedCountryData.recoveredPerOneMillion * dropDownIndex) || 0}
+          number={prettyPrintStat(Math.floor(selectedCountryData.recoveredPerOneMillion * dropDownIndex)) || 0}
           bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
         {/* ------Recovered */}
         <Stats
           heading="Deaths"
-          number={Math.floor(selectedCountryData.deathsPerOneMillion * dropDownIndex) || 0}
+          number={prettyPrintStat(Math.floor(selectedCountryData.deathsPerOneMillion * dropDownIndex)) || 0}
           bottomLine={`*per ${numberType[dropDownIndex]}`}
         />
       </div>
@@ -208,13 +208,13 @@ function DashboardPage() {
         {/* ------Active */}
         <Stats
           heading="Active"
-          number={Math.floor(selectedCountryData.activePerOneMillion * dropDownIndex) || 0}
+          number={prettyPrintStat(Math.floor(selectedCountryData.activePerOneMillion * dropDownIndex)) || 0}
           progressBar={selectedCountryData.activePerOneMillionPercentage}
         />
         {/* ------Critical */}
         <Stats
           heading="Critical"
-          number={Math.floor(selectedCountryData.criticalPerOneMillion * dropDownIndex) || 0}
+          number={prettyPrintStat(Math.floor(selectedCountryData.criticalPerOneMillion * dropDownIndex)) || 0}
           progressBar={selectedCountryData.criticalPerOneMillionPercentage}
         />
       </div>
