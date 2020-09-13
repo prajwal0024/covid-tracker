@@ -7,6 +7,10 @@
     flex-direction: column;
 }
 
+.sidebar + .sidebar {
+    display: none;
+}
+
 .sidebar__heading {
     cursor: default;
     font-size: 3.1rem;
@@ -20,4 +24,22 @@
     flex: 0 0 1;
     overflow: scroll;
     max-height: 1050px;
+}
+
+.sidebar--only {
+    max-height: calc(100vh - 6.8rem);
+}
+.sidebar--only .sidebar__heading {
+    flex: 1;
+    text-align: center;
+}
+
+.sidebar--only .sidebar__heading  br{
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .sidebar--fixed{
+        display: none;
+    } 
 }

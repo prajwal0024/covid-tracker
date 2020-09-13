@@ -44,12 +44,11 @@ function App() {
             <Route path="/" exact><DashboardPage /></Route>
             <Route path="/map" exact><MapPage /></Route>
             <Route path="/analytics" exact><AnalyticsPage /></Route>
-            <Route path="/sidebar" exact><Sidebar /></Route>
+            <Route path="/sidebar" exact><Sidebar onlySidebar /></Route>
           </Switch>
-
-          <Sidebar className="app__fixedSidebar" />
+          <Sidebar fixedSidebar />
         </main>
-        <Tabs view="dashboard" />
+        <Tabs />
       </div >
     </Router>
   );

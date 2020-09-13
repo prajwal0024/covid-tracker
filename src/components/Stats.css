@@ -8,6 +8,7 @@
   box-shadow: 0 .5rem 1rem rgba(30, 62, 101, .2);
   flex: 1;
   cursor: default;
+  min-width: 20rem;
 }
 
 .stats__active {

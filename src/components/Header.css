@@ -55,6 +55,15 @@
   width: 1.984rem;
 }
 
+@media (max-width: 1000px) {
+  .header__innerDiv {
+    width: 90%;
+  }
+
+  .header__search {
+    width: 35rem;
+  }
+}
 /* 
 
 .header__input {

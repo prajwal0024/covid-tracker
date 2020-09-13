@@ -1,8 +1,14 @@
 .analytics {
   max-height: 100vh;
   overflow-y: scroll;
-  flex: 0 0 70%;
   padding: 1rem;
   margin-top: 6.8rem;
   /* background-color: red; */
+  text-align: center;
+}
+
+.analytics h1 {
+  margin: 2rem auto;
+  width: 100vw;
+  font-weight: 400;
 }

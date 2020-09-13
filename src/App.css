@@ -11,6 +11,8 @@
 html {
     font-size: 62.5%;
     background-color: #F3F8FF;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 
 body {
@@ -36,6 +38,7 @@ main {
 
 /* ----------------GLOBAL STYLING---------------- */
 .dropDown {
+    text-align: center;
     cursor: pointer;
     background-color: var(--color-white);
     padding: 1rem 2.7rem .9rem;
@@ -95,4 +98,10 @@ main {
 .footNote__text > span {
     width: .7rem;
     display: inline-block
+}
+
+@media (max-width: 1000px) {
+    .sidebar{
+        display: none;
+    } 
 }

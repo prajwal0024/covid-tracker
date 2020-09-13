@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Sidebar.css'
 import Country from '../components/Country'
 import { DataContext } from '../context/DataContext'
 import { sortCountries } from '../utils';
+import { useLocation } from 'react-router-dom'
 
-function Sidebar() {
+function Sidebar({ fixedSidebar, onlySidebar }) {
 
   const {
     countriesState, worldwideState
@@ -23,11 +24,11 @@ function Sidebar() {
   }
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${fixedSidebar && "sidebar--fixed"} ${onlySidebar && "sidebar--only"}`}>
       {/* --Heading */}
       {
         !scrollHeight ?
-          <h1 className="sidebar__heading">Cases by<br />Countries 🌏</h1>
+          <h1 className="sidebar__heading">Cases by <br />Countries 🌏</h1>
           :
           <div className="dropDown sidebar__block">
             <h2 className="dropDown__heading"><span>Cases</span> by <span>Countries 🌏</span></h2>
