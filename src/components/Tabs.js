@@ -29,12 +29,20 @@ function Tabs() {
           </div>
         </Link>
 
-        {/* <Link to="/analytics" className="tabs__link" onClick={() => linkedClicked("analytics")}>
-          <div className={`tabs__tab ${activeTab === "analytics" && "active"}`}>
-            <AnalyticsSvg className="tabs__icon" />
-            <h5 className="tabs__heading">Analytics<br /><span>View</span></h5>
+        <Link
+          to='/analytics'
+          className='tabs__link'
+          onClick={() => linkedClicked('analytics')}
+        >
+          <div className={`tabs__tab ${activeTab === 'analytics' && 'active'}`}>
+            <AnalyticsSvg className='tabs__icon' />
+            <h5 className='tabs__heading'>
+              Analytics
+              <br />
+              <span>View</span>
+            </h5>
           </div>
-        </Link> */}
+        </Link>
 
         <Link
           to='/map'

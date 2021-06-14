@@ -5,6 +5,8 @@
   height: 6.8rem;
   position: fixed;
   top: 0;
+  box-shadow: 10px 20px 30px #00000003;
+  border-bottom: 2px solid rgba(30, 62, 101, 0.2);
 }
 
 .header__innerDiv {
@@ -31,14 +33,14 @@
 .header__input {
   width: 90%;
   margin-right: -4rem;
-  background-color: rgba(215, 231, 253, .3);
+  background-color: rgba(215, 231, 253, 0.3);
   border: none;
   border-radius: 20px;
   padding: 1rem;
   padding-left: 2rem;
   color: var(--color-primary);
   font-size: 1.6rem;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 .header__input:hover {

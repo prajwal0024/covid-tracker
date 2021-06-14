@@ -1,5 +1,6 @@
 .analytics {
-  max-height: 100vh;
+  max-height: 90vh;
+  overflow: scroll;
   overflow-y: scroll;
   padding: 1rem;
   flex: 0 0 70%;
@@ -14,8 +15,21 @@
   font-weight: 400;
 }
 
+.analytics-charts-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem auto 4.5rem;
+  padding-right: 1rem;
+}
+
 @media (max-width: 1000px) {
   .analytics {
     flex: 1;
+  }
+}
+@media (max-width: 1000px) {
+  .analytics-charts-container {
+    grid-template-columns: 1fr;
   }
 }
