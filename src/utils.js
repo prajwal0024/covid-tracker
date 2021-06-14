@@ -61,6 +61,16 @@ export const showDataOnMap = (data, casesTypes = 'cases') => {
       radius={
         Math.sqrt(current[casesTypes]) * casesTypeColors[casesTypes].multiplier
       }
-    />
+    >
+      <Popup className='map-popup'>
+        <div className='map-popup-container'>
+          <img src={current?.countryInfo?.flag} className='map-popup-flag' />
+          <p className='map-popup-heading'>{casesTypes.toUpperCase()}</p>
+          <p className='map-popup-stat'>
+            {prettyPrintStat(current[casesTypes])}
+          </p>
+        </div>
+      </Popup>
+    </Circle>
   ));
 };
